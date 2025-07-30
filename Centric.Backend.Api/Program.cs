@@ -7,11 +7,20 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
+
+        var allowOrigins = "_myAllowSpecificOrigins";
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(name: allowOrigins,
+                            policy =>
+                            {
+                                policy.WithOrigins("http://localhost:4200");
+                            });
+        });
 
         var app = builder.Build();
 
@@ -22,9 +31,8 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
         app.UseAuthorization();
-
+        app.UseCors(allowOrigins);
 
         app.MapControllers();
 
