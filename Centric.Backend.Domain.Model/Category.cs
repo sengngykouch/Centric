@@ -1,7 +1,7 @@
 namespace Centric.Backend.Domain.Model;
 
 public record Category(
-   int Id,
+   int CategoryId,
    string Name,
    bool IsActive,
 

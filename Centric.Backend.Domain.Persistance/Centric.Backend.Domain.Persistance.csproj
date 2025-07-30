@@ -6,4 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Centric.Backend.Domain.Model\Centric.Backend.Domain.Model.csproj" />
+  </ItemGroup>
 </Project>
