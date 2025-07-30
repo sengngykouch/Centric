@@ -24,8 +24,7 @@
           "type": "pipe"
         },
         "@schematics/angular:guard": {
-          "skipTests": true,
-          "type": "guard"
+          "skipTests": true
         }
       },
       "root": "",
