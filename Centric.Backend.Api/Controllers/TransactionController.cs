@@ -7,18 +7,18 @@ using Centric.Backend.Persistance.Repositories;
 namespace Centric.Backend.Api.Controllers;
 
 [Route("api/[controller]")]
-public class CategoryController : ControllerBase
+public class TransactionController : ControllerBase
 {
     private readonly string _connectString;
 
-    public CategoryController(IConfiguration configuration)
+    public TransactionController(IConfiguration configuration)
     {
         _connectString = configuration.GetConnectionString("DefaultConnection")!;
     }
 
     [HttpGet]
-    public async Task<ImmutableList<Category>> Get()
+    public async Task<ImmutableList<Transaction>> Get()
     {
-        return await CategoryRepository.Get(_connectString);
+        return await TransactionRepository.Get(_connectString);
     }
 }
