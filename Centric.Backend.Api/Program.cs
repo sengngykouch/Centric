@@ -1,10 +1,10 @@
-
 namespace Centric.Backend.Api;
 
 public class Program
 {
     public static void Main(string[] args)
     {
+
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllers();
@@ -18,7 +18,9 @@ public class Program
             options.AddPolicy(name: allowOrigins,
                             policy =>
                             {
-                                policy.WithOrigins("http://localhost:4200");
+                                policy.WithOrigins("http://localhost:4200")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
                             });
         });
 
