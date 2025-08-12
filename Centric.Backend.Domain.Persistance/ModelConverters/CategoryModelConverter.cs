@@ -1,4 +1,4 @@
-using Centric.Backend.Domain.Model;
+using Centric.Backend.Domain.Model.Category;
 using Centric.Backend.Domain.Persistance.Queries;
 
 namespace Centric.Backend.Domain.Persistance.ModelConverters;

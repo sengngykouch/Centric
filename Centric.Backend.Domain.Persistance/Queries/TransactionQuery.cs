@@ -7,7 +7,7 @@ namespace Centric.Backend.Domain.Persistance.Queries;
 
 public static class TransactionQuery
 {
-    public static async Task<ImmutableList<QueryResult>> Execute(string connectionString)
+    public static async Task<ImmutableList<QueryResult>> Get(string connectionString)
     {
         var connection = new SqlConnection(connectionString);
         var transactions = await connection.QueryAsync<QueryResult>("SELECT * FROM [Centric].[dbo].[Transaction]");

@@ -1,4 +1,4 @@
-namespace Centric.Backend.Domain.Model;
+namespace Centric.Backend.Domain.Model.Category;
 
 public record Category(
    int CategoryId,

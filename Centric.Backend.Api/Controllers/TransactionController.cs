@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Immutable;
 
-using Centric.Backend.Domain.Model;
+using Centric.Backend.Domain.Model.Transaction;
 using Centric.Backend.Persistance.Repositories;
 
 namespace Centric.Backend.Api.Controllers;

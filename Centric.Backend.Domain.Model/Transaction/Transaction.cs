@@ -1,4 +1,4 @@
-namespace Centric.Backend.Domain.Model;
+namespace Centric.Backend.Domain.Model.Transaction;
 
 public record Transaction(
     int TransactionId,
