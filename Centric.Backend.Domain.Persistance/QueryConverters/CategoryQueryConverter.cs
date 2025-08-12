@@ -8,9 +8,9 @@ namespace Centric.Backend.Domain.Persistance.QueryConverters;
 
 public static class CategoryQueryConverter
 {
-    public static async Task<ImmutableList<Category>> Convert(string connectionString)
+    public static ImmutableList<Category> Convert(ImmutableList<CategoryQuery.QueryResult> queryResults)
     {
-        var categories = (await CategoryQuery.Execute(connectionString)).Select(CategoryModelConverter.Get);
+        var categories = queryResults.Select(CategoryModelConverter.Get);
 
         return [.. categories];
     }

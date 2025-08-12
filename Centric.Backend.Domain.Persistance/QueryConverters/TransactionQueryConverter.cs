@@ -8,12 +8,15 @@ namespace Centric.Backend.Domain.Persistance.QueryConverters;
 
 public static class TransactionQueryConverter
 {
-    public static async Task<ImmutableList<Transaction>> Convert(string connectionString)
+    public static ImmutableList<Transaction> Convert(
+        ImmutableList<TransactionQuery.QueryResult> transactionQueryResults,
+        ImmutableList<CategoryQuery.QueryResult> categoryQueryResults
+    )
     {
-        var categories = (await CategoryQuery.Execute(connectionString)).Select(CategoryModelConverter.Get);
+        var categories = categoryQueryResults.Select(CategoryModelConverter.Get);
         var categoryMapper = categories.ToDictionary(c => c.CategoryId, c => c.Name);
 
-        var transactions = (await TransactionQuery.Execute(connectionString)).Select(t => TransactionModelConverter.Get(t, categoryMapper));
+        var transactions = transactionQueryResults.Select(t => TransactionModelConverter.Get(t, categoryMapper));
 
         return [.. transactions];
     }
