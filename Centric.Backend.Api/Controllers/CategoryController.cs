@@ -27,4 +27,5 @@ public class CategoryController : ControllerBase
     {
         return await CategoryRepository.Add(_connectString, request);
     }
+
 }
